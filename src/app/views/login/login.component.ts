@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
     });
 
     this.getValueRegisterButton();
-    this.getTemplateBannerA('BannerLogin_A');
+    //this.getTemplateBannerA('BannerLogin_A');
   };
 
 

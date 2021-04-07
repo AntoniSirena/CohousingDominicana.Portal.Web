@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  coreURL: 'http://localhost:61049/'
+  coreURL: 'http://localhost:61050/'
 };

@@ -1,521 +1,102 @@
-
-
 <!--Call spinner-->
-<ngx-spinner
-bdColor="rgba(51,51,51,0.8)"
-size="medium"
-color="rgb(152, 214, 218)"
-type="timer"
->
-<p style="font-size: 20px; color: white">Cangando...</p>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="rgb(152, 214, 218)" type="timer">
+  <p style="font-size: 20px; color: white">Cangando...</p>
 </ngx-spinner>
 
 <!--Contenedor I-->
-  <div class="">
+<div class="imgPortada">
 
-    <div class="row">
+  <!--Menú-->
+  <div class="row">
+    <div class="col-md-12">
 
-      <div class="col-md-6">
-        <ngb-carousel class="center" *ngIf="images_B" [showNavigationArrows]="true"
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand btn-white" style="font-weight: bold;">COHOUSING DOMINICANA</a>
+        <button id="btnMenu" class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span style="font-weight: bold; color: white;">FILOSOFIA</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" (click)="openMisionModal('Mision')">Misión</a>
+                <a class="dropdown-item" (click)="openVisionModal('Vision')">Visión</a>
+                <a class="dropdown-item" (click)="openValoresModal('Valores')">Valores</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span style="font-weight: bold; color: white;">NOSOTROS</span>
+              </a>
+              <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" (click)="inProcess()">Historia</a>
+                <a class="dropdown-item" (click)="inProcess()">Quiénes somos</a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" style="font-weight: bold; color: white;" (click)="inProcess()">CONTACTENOS</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span style="font-weight: bold; color: white;">TIPOS DE COHOUSING</span>
+              </a>
+              <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" (click)="inProcess()">Bosque o Verde</a>
+                <a class="dropdown-item" (click)="inProcess()">Ciudad</a>
+                <a class="dropdown-item" (click)="inProcess()">Playa</a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" style="font-weight: bold; color: white;" (click)="inProcess()">COOPERATIVA</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" style="font-weight: bold; color: white;" (click)="inProcess()">HACERME SOCIO</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" style="font-weight: bold; color: white;" (click)="inProcess()">INVERTIR</a>
+            </li>
+
+          </ul>
+
+        </div>
+      </nav>
+
+    </div>
+  </div>
+  <br>
+
+  <!--Carousel A-->
+  <div class="row">
+    <div class="col-md-12">
+
+      <ngb-carousel class="center" *ngIf="images_A" [showNavigationArrows]="true"
         [showNavigationIndicators]="showNavigationIndicators">
-        <ng-template ngbSlide *ngFor="let image of images_B">
+        <ng-template ngbSlide *ngFor="let image of images_A">
           <div class="picsum-img-wrapper">
-            <img [src]="image" alt="Random slide" style="width:50%; height:60%;">
+            <img [src]="image" alt="Random slide" style="width: 76%; height: 450px;">
           </div>
         </ng-template>
       </ngb-carousel>
-      </div>
-      <br>
-      <br>
-
-      <div class="col-md-6">
-        <ngb-carousel class="center" *ngIf="images_C" [showNavigationArrows]="true"
-        [showNavigationIndicators]="showNavigationIndicators">
-        <ng-template ngbSlide *ngFor="let image of images_C">
-          <div class="picsum-img-wrapper">
-            <img [src]="image" alt="Random slide" style="width:50%; height:60%;">
-          </div>
-        </ng-template>
-      </ngb-carousel>
-      </div>
 
     </div>
-    <br>
-    <br>
-    <!--Menú-->
-    <div class="row">
-      <div class="col-md-12">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-          <a class="navbar-brand btn-white" style="font-weight: bold;">MI CIUDAD</a>
-          <button id="btnMenu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  <span style="font-weight: bold; color: white;">FILOSOFIA</span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" (click)="openMisionModal('Mision')">Misión</a>
-                  <a class="dropdown-item" (click)="openVisionModal('Vision')">Visión</a>
-                  <a class="dropdown-item" (click)="openValoresModal('Valores')">Valores</a>
-                </div>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  <span style="font-weight: bold; color: white;">CULTURA</span>
-                </a>
-                <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" (click)="openHistoryGuerraModal('History_Guerra')">Hisotiria del municipio</a>
-                </div>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  <span style="font-weight: bold; color: white;">DIRECTORIOS DE NEGOCIOS</span>
-                </a>
-                <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" (click)="openLawyerModal('Lawyer_Directory')">Abogados</a>
-                  <a class="dropdown-item" (click)="openAutoModal('Auto_Directory')">Autos: (RentCars y Dealers)</a>
-                  <a class="dropdown-item" (click)="openFoodModal('Food_Directory')">Comidas</a>
-                  <a class="dropdown-item" (click)="openSupermarketProvisionsModal('SupermarketProvisions_Directory')">Comerciantes y Detallistas de Provisiones</a>
-                  <a class="dropdown-item" (click)="openEntertainmentModal('Entertainment_Directory')">Entretenimientos: (Club Night, Billar, Drink y Piscina)</a>
-                  <a class="dropdown-item" (click)="openAccountingModal('Accounting_Directory')">Contabilidad</a>
-                  <a class="dropdown-item" (click)="openGraphicDesignModal('GraphicDesign_Directory')">Diseño: (Gráfico, de Moda y más)</a>
-                  <a class="dropdown-item" (click)="openFarmaceModal('FarmaceDirectory')">Farmacias</a>
-                  <a class="dropdown-item" (click)="openHardwareStoreReplacementModal('HardwareStoreReplacement_Directory')">Ferreterías y Repuestos</a>
-                  <a class="dropdown-item" (click)="openHotelCottageModal('HotelCottage_Directory')">Hoteles y Casas de campo</a>
-                  <a class="dropdown-item" (click)="openCivilEngineerModal('CivilEngineer_Directory')">Ingeniería Civil: (Agrimensura, Construcción, Electricidad y Plomería)</a>
-                  <a class="dropdown-item" (click)="openBeautyStyleModal('BeautyStyle_Directory')">Salones, Uñas y Barberías</a>
-                  <a class="dropdown-item" (click)="openHealthModal('Health_Directory')">Salud: (Clinicas y Hospitales)</a>
-                  <a class="dropdown-item" (click)="openWorkshopsModal('Workshops_Directory')">Talleres</a>
-                  <a class="dropdown-item" (click)="openDriveModal('Driver_Directory')">Taxis y Deliverys</a>
-                  <a class="dropdown-item" (click)="openMobileComputerStoresModal('MobileComputerStores_Directory')">Tecnología: (Computadoras, Sistemas, Seguridad y Celulares)</a>
-                  <a class="dropdown-item" (click)="openStoreModal('Store_Directory')">Tiendas</a>
-                  <a class="dropdown-item" (click)="openNurseryModal('Nursery_Directory')">Viveros</a>
-                </div>
-              </li>
-              
-            </ul>
-            
-          </div>
-        </nav>
-      </div>
-    </div>
-    <br>
-    <br>
-
-
-    <!--Principal row-->
-    <div class="row">
-      <br>
-      <br>
-      <!--Firt column-->
-      <div class="col-md-8">         
-        <ngb-carousel class="center" *ngIf="images_A" [showNavigationArrows]="true"
-          [showNavigationIndicators]="showNavigationIndicators">
-          <ng-template ngbSlide *ngFor="let image of images_A">
-            <div class="picsum-img-wrapper">
-              <img [src]="image" alt="Random slide" style="width:70%; height:50%;">
-            </div>
-          </ng-template>
-        </ngb-carousel>
-
-        <br>
-        <br>
-        <br>
-
-        <!--Novelties and news-->
-        <div class="row">
-          <div class="col-sm-12">
-
-                <app-view-market> </app-view-market>
-            
-                <div class="card-header" style="margin-bottom: 8px; background-color: rgba(30, 103, 172, 0.945);">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h3 class="center" style="color: white">NOVEDADES Y NOTICIAS</h3>
-                    </div>
-                  </div>
-                </div>
-
-                <ngb-tabset [destroyOnHide]="false">
-                  
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div (click)="loadindGetNoveltiesByType('Science')" class="novelty-tab">Ciencia y Tecnología</div>
-                    </ng-template>
-
-                    <ng-template ngbTabContent>
-
-                      <div class="centerDivScroll">
-                        <div *ngFor="let item of novelties" class="novelty">
-                          <h4 class="noveltyText">{{item.Title}}</h4>
-                          <div class="img">
-                            <img src="{{coreURL}}api/portada/GetImageByNoveltyId?id={{item.Id}}&width={{img_Width}}&height={{img_height}}">
-                          </div>
-                          <p class="justify noveltyText" [innerHTML]="item.Description">
-                          </p>
-                          <p class="right noveltyText bold">
-                            Publicada el : {{item.StartDate}}
-                          </p>
-                          <hr class="hr">
-                        </div>
-                      </div>
-
-                    </ng-template>
-                  </ngb-tab>
-
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div (click)="loadindGetNoveltiesByType('Sporty')" class="novelty-tab">Deporte</div>
-                    </ng-template>
-
-                    <ng-template ngbTabContent>
-
-                      <div class="centerDivScroll">
-                        <div *ngFor="let item of novelties" class="novelty">
-                          <h4 class="noveltyText">{{item.Title}}</h4>
-                          <div class="img">
-                            <img src="{{coreURL}}api/portada/GetImageByNoveltyId?id={{item.Id}}&width={{img_Width}}&height={{img_height}}">
-                          </div>
-                          <p class="justify noveltyText" [innerHTML]="item.Description">
-                          </p>
-                          <p class="right noveltyText bold">
-                            Publicada el : {{item.StartDate}}
-                          </p>
-                          <hr class="hr">
-                        </div>
-                      </div>
-
-                    </ng-template>
-                  </ngb-tab>
-
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div (click)="loadindGetNoveltiesByType('Politics')" class="novelty-tab">Política</div>
-                    </ng-template>
-
-                    <ng-template ngbTabContent>
-
-                      <div class="centerDivScroll">
-                        <div *ngFor="let item of novelties" class="novelty">
-                          <h4 class="noveltyText">{{item.Title}}</h4>
-                          <div class="img">
-                            <img src="{{coreURL}}api/portada/GetImageByNoveltyId?id={{item.Id}}&width={{img_Width}}&height={{img_height}}">
-                          </div>
-                          <p class="justify noveltyText" [innerHTML]="item.Description">
-                          </p>
-                          <p class="right noveltyText bold">
-                            Publicada el : {{item.StartDate}}
-                          </p>
-                          <hr class="hr">
-                        </div>
-                      </div>
-
-                    </ng-template>
-                  </ngb-tab>
-
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div (click)="loadindGetNoveltiesByType('Show')" class="novelty-tab">Espectáculo</div>
-                    </ng-template>
-
-                    <ng-template ngbTabContent>
-
-                      <div class="centerDivScroll">
-                        <div *ngFor="let item of novelties" class="novelty">
-                          <h4 class="noveltyText">{{item.Title}}</h4>
-                          <div class="img">
-                            <img src="{{coreURL}}api/portada/GetImageByNoveltyId?id={{item.Id}}&width={{img_Width}}&height={{img_height}}">
-                          </div>
-                          <p class="justify noveltyText" [innerHTML]="item.Description">
-                          </p>
-                          <p class="right noveltyText bold">
-                            Publicada el : {{item.StartDate}}
-                          </p>
-                          <hr class="hr">
-                        </div>
-                      </div>
-
-                    </ng-template>
-                  </ngb-tab>
-
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div (click)="loadindGetNoveltiesByType('Social')" class="novelty-tab">Social</div>
-                    </ng-template>
-
-                    <ng-template ngbTabContent>
-
-                      <div class="centerDivScroll">
-                        <div *ngFor="let item of novelties" class="novelty">
-                          <h4 class="noveltyText">{{item.Title}}</h4>
-                          <div class="img">
-                            <img src="{{coreURL}}api/portada/GetImageByNoveltyId?id={{item.Id}}&width={{img_Width}}&height={{img_height}}">
-                          </div>
-                          <p class="justify noveltyText" [innerHTML]="item.Description">
-                          </p>
-                          <p class="right noveltyText bold">
-                            Publicada el : {{item.StartDate}}
-                          </p>
-                          <hr class="hr">
-                        </div>
-                      </div>
-
-                    </ng-template>
-                  </ngb-tab>
-
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div (click)="loadindGetNoveltiesByType('Economy')" class="novelty-tab">Economía</div>
-                    </ng-template>
-
-                    <ng-template ngbTabContent>
-
-                      <div class="centerDivScroll">
-                        <div *ngFor="let item of novelties" class="novelty">
-                          <h4 class="noveltyText">{{item.Title}}</h4>
-                          <div class="img">
-                            <img src="{{coreURL}}api/portada/GetImageByNoveltyId?id={{item.Id}}&width={{img_Width}}&height={{img_height}}">
-                          </div>
-                          <p class="justify noveltyText" [innerHTML]="item.Description">
-                          </p>
-                          <p class="right noveltyText bold">
-                            Publicada el : {{item.StartDate}}
-                          </p>
-                          <hr class="hr">
-                        </div>
-                      </div>
-
-                    </ng-template>
-                  </ngb-tab>
-
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div (click)="loadindGetNoveltiesByType('Art')" class="novelty-tab">Arte</div>
-                    </ng-template>
-
-                    <ng-template ngbTabContent>
-
-                      <div class="centerDivScroll">
-                        <div *ngFor="let item of novelties" class="novelty">
-                          <h4 class="noveltyText">{{item.Title}}</h4>
-                          <div class="img">
-                            <img src="{{coreURL}}api/portada/GetImageByNoveltyId?id={{item.Id}}&width={{img_Width}}&height={{img_height}}">
-                          </div>
-                          <p class="justify noveltyText" [innerHTML]="item.Description">
-                          </p>
-                          <p class="right noveltyText bold">
-                            Publicada el : {{item.StartDate}}
-                          </p>
-                          <hr class="hr">
-                        </div>
-                      </div>
-
-                    </ng-template>
-                  </ngb-tab>
-
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div (click)="loadindGetNoveltiesByType('Police')" class="novelty-tab">Policiale</div>
-                    </ng-template>
-
-                    <ng-template ngbTabContent>
-
-                      <div class="centerDivScroll">
-                        <div *ngFor="let item of novelties" class="novelty">
-                          <h4 class="noveltyText">{{item.Title}}</h4>
-                          <div class="img">
-                            <img src="{{coreURL}}api/portada/GetImageByNoveltyId?id={{item.Id}}&width={{img_Width}}&height={{img_height}}">
-                          </div>
-                          <p class="justify noveltyText" [innerHTML]="item.Description">
-                          </p>
-                          <p class="right noveltyText bold">
-                            Publicada el : {{item.StartDate}}
-                          </p>
-                          <hr class="hr">
-                        </div>
-                      </div>
-
-                    </ng-template>
-                  </ngb-tab>
-
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div (click)="loadindGetNoveltiesByType('Education')" class="novelty-tab">Educación</div>
-                    </ng-template>
-
-                    <ng-template ngbTabContent>
-
-                      <div class="centerDivScroll">
-                        <div *ngFor="let item of novelties" class="novelty">
-                          <h4 class="noveltyText">{{item.Title}}</h4>
-                          <div class="img">
-                            <img src="{{coreURL}}api/portada/GetImageByNoveltyId?id={{item.Id}}&width={{img_Width}}&height={{img_height}}">
-                          </div>
-                          <p class="justify noveltyText" [innerHTML]="item.Description">
-                          </p>
-                          
-                          <p class="right noveltyText bold">
-                            Publicada el : {{item.StartDate}}
-                          </p>
-                          <hr class="hr">
-                        </div>
-                      </div>
-
-                    </ng-template>
-                  </ngb-tab>
-
-                </ngb-tabset>
-
-          </div>
-        </div>
-
-        <!--marquee-->
-        <!-- <br>
-        <marquee speed="drowsy" id="mymarqueeA">
-          <div class="card">
-            <div class="card-body">               
-              
-              <div class="row textLateralStyle lateralsDivScroll">
-                <div class="col-md-12">
-                  <h3>Monta tu publicidad totalmente GRATIS</h3>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </marquee>
-
-        <div class="row">
-          <div class="col-md-6 center">
-            <input type="button" class="btn btn-danger marquee_Button"  value="Detener" onClick="document.getElementById('mymarqueeA').stop();">
-            <input type="button" class="btn btn-success marquee_Button" value="Seguir" onClick="document.getElementById('mymarqueeA').start();">
-          </div>
-        </div>
-        <br>
-        <br> -->
-        <!--end marquee-->
-
-      </div>
-
-
-      <!--Second column-->
-      <div class="col-md-4">
-
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-body">               
-                
-                <div class="row textLateralStyle lateralsDivScroll">
-                  <div class="col-md-12">
-                    <p [innerHTML]="leftInfo_A.Body"> </p>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-body">               
-                
-                <div class="row textLateralStyle lateralsDivScroll">
-                  <div class="col-md-12">
-                    <p [innerHTML]="leftInfo_B.Body"> </p>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-body">               
-                
-                <div class="row textLateralStyle lateralsDivScroll">
-                  <div class="col-md-12">
-                    <p [innerHTML]="leftInfo_C.Body"> </p>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-body">
-                
-                <div class="row textLateralStyle lateralsDivScroll">
-                  <div class="col-md-12">
-                    <span [innerHTML]="rightInfo_A.Body"> </span>
-                  </div>
-                </div> 
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-body">
-                
-                <div class="row textLateralStyle lateralsDivScroll">
-                  <div class="col-md-12">
-                    <span [innerHTML]="rightInfo_B.Body"> </span>
-                  </div>
-                </div> 
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-body">
-                
-                <div class="row textLateralStyle lateralsDivScroll">
-                  <div class="col-md-12">
-                    <span [innerHTML]="rightInfo_C.Body"> </span>
-                  </div>
-                </div> 
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-
-    </div>
-
   </div>
 
-    
+</div>
 
 
 
@@ -544,7 +125,7 @@ type="timer"
 </ng-template>
 
 
-  
+
 <!--Mision Modal -->
 <ng-template #misionModal let-modal class="modal-dialog">
   <div class="modal-header">
@@ -660,7 +241,8 @@ type="timer"
   </div>
   <div class="modal-body templateBodyColor">
 
-    <strong class="center templateHeader">Salones, Centro de Uñas y Barbería de nuesto Municipio y zonas aledañas</strong>
+    <strong class="center templateHeader">Salones, Centro de Uñas y Barbería de nuesto Municipio y zonas
+      aledañas</strong>
     <div>
       <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
     </div>
@@ -679,7 +261,8 @@ type="timer"
   </div>
   <div class="modal-body templateBodyColor">
 
-    <strong class="center templateHeader">Tiendas de Celulares y Computadoras de nuesto Municipio y zonas aledañas</strong>
+    <strong class="center templateHeader">Tiendas de Celulares y Computadoras de nuesto Municipio y zonas
+      aledañas</strong>
     <div>
       <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
     </div>
@@ -717,7 +300,8 @@ type="timer"
   </div>
   <div class="modal-body templateBodyColor">
 
-    <strong class="center templateHeader">Comerciantes y Detallistas de Provisiones del Mun/ San Antonio de Guerra y zonas aledañas</strong>
+    <strong class="center templateHeader">Comerciantes y Detallistas de Provisiones del Mun/ San Antonio de Guerra y
+      zonas aledañas</strong>
     <div>
       <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
     </div>
@@ -793,7 +377,8 @@ type="timer"
   </div>
   <div class="modal-body templateBodyColor">
 
-    <strong class="center templateHeader">RentCars y Dealers del Municipio San Antonio de Guerra y zonas aledañas</strong>
+    <strong class="center templateHeader">RentCars y Dealers del Municipio San Antonio de Guerra y zonas
+      aledañas</strong>
     <div>
       <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
     </div>
@@ -812,7 +397,8 @@ type="timer"
   </div>
   <div class="modal-body templateBodyColor">
 
-    <strong class="center templateHeader">Taxistas y Deliverys del Municipio San Antonio de Guerra y zonas aledañas</strong>
+    <strong class="center templateHeader">Taxistas y Deliverys del Municipio San Antonio de Guerra y zonas
+      aledañas</strong>
     <div>
       <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
     </div>
@@ -831,7 +417,8 @@ type="timer"
   </div>
   <div class="modal-body templateBodyColor">
 
-    <strong class="center templateHeader">Servicios de ingeniería civil del Municipio San Antonio de Guerra y zonas aledañas</strong>
+    <strong class="center templateHeader">Servicios de ingeniería civil del Municipio San Antonio de Guerra y zonas
+      aledañas</strong>
     <div>
       <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
     </div>
@@ -850,7 +437,8 @@ type="timer"
   </div>
   <div class="modal-body templateBodyColor">
 
-    <strong class="center templateHeader">Hoteles y Casas de Campo del Municipio San Antonio de Guerra y zonas aledañas</strong>
+    <strong class="center templateHeader">Hoteles y Casas de Campo del Municipio San Antonio de Guerra y zonas
+      aledañas</strong>
     <div>
       <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
     </div>
@@ -869,7 +457,8 @@ type="timer"
   </div>
   <div class="modal-body templateBodyColor">
 
-    <strong class="center templateHeader">Centros de entretenimiento del Municipio San Antonio de Guerra y zonas aledañas</strong>
+    <strong class="center templateHeader">Centros de entretenimiento del Municipio San Antonio de Guerra y zonas
+      aledañas</strong>
     <div>
       <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
     </div>
@@ -985,7 +574,8 @@ type="timer"
   </div>
   <div class="modal-body templateBodyColor">
 
-    <strong class="center templateHeader">Clinicas y Hospitales del Municipio San Antonio de Guerra y zonas aledañas</strong>
+    <strong class="center templateHeader">Clinicas y Hospitales del Municipio San Antonio de Guerra y zonas
+      aledañas</strong>
     <div>
       <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
     </div>

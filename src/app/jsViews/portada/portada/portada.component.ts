@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from '@an
 import { NgbCarouselConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 import { NgxSpinnerService } from "ngx-spinner";
-import $ from 'jquery'; 
+import $ from 'jquery';
 
 import { Router } from '@angular/router';
 import { PortadaService } from '../../../services/portada/portada.service';
@@ -73,7 +73,7 @@ export class PortadaComponent implements OnInit {
 
 
   @ViewChild('automaticPublicityModal') automaticPublicityModal: ElementRef;
-  
+
 
   coreURL = environment.coreURL;
   img_Width = SizeImageNovelty.width;
@@ -121,7 +121,7 @@ export class PortadaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(localStorage.length <= 5 ){
+    if (localStorage.length <= 5) {
       this.redirectService.loginUserVisitador();
       return;
     }
@@ -136,32 +136,23 @@ export class PortadaComponent implements OnInit {
 
 
   //open default menu
-  openDefaultMenu(){
+  openDefaultMenu() {
     $('#btnMenu').trigger('click');
   }
 
   ///loading
   loadingPortada() {
     this.getCarousel_Images_A('Carousel_Images_A_Portada');
-    this.getCarousel_Images_B('Carousel_Images_B_Portada');
-    this.getCarousel_Images_C('Carousel_Images_C_Portada');
 
     setTimeout(() => {
       this.spinnerService.hide();
-
-      this.getTemplateLeftInfo_A('LeftInfo_A');
-      this.getTemplateLeftInfo_B('LeftInfo_B');
-      this.getTemplateLeftInfo_C('LeftInfo_C');
-
-      this.getTemplateRightInfo_A('RightInfo_A');
-      this.getTemplateRightInfo_B('RightInfo_B');
-      this.getTemplateRightInfo_C('RightInfo_C');
-
-      this.getNoveltiesByType("Science");
-
     }, 1000);
   }
 
+  
+  inProcess(){
+    alert('Funcionalidad en proceso');
+  }
 
   //Is Enabled Automatic Publicity
   isEnabledAutomaticPublicity(name: string) {

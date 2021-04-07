@@ -44,9 +44,10 @@
     margin-right: 37px;
 }
 
+
 .imgPortada{
     background: transparent;
-    background-image: url(assets/img/portada/NavidadA.jpg);
+    /*background-image: url(assets/img/portada/cohousing1.jpg);*/
     height: 100%;
     /* Para dejar la imagen de fondo centrada, vertical yhorizontalmente */
     background-position: center center;
