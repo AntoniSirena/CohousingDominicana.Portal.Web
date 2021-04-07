@@ -7,6 +7,7 @@
 <div class="imgPortada">
 
   <!--Menú-->
+  <br>
   <div class="row">
     <div class="col-md-12">
 
@@ -88,7 +89,7 @@
         [showNavigationIndicators]="showNavigationIndicators">
         <ng-template ngbSlide *ngFor="let image of images_A">
           <div class="picsum-img-wrapper">
-            <img [src]="image" alt="Random slide" style="width: 76%; height: 450px;">
+            <img [src]="image" alt="Random slide" style="width: 1500px; height: 500px;">
           </div>
         </ng-template>
       </ngb-carousel>
@@ -129,7 +130,6 @@
 <!--Mision Modal -->
 <ng-template #misionModal let-modal class="modal-dialog">
   <div class="modal-header">
-    <h3 class="modal-title">Misión</h3>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -159,7 +159,6 @@
 <!--Visión Modal -->
 <ng-template #visionModal let-modal class="modal-dialog">
   <div class="modal-header">
-    <h3 class="modal-title">Visión</h3>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -188,7 +187,6 @@
 <!--Valores Modal -->
 <ng-template #valoresModal let-modal class="modal-dialog">
   <div class="modal-header">
-    <h3 class="modal-title">Valores</h3>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -208,376 +206,6 @@
         </div>
       </div>
       <!--/.col-->
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--farmace Modal -->
-<ng-template #farmaceModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Farmacias</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-    <strong class="center templateHeader">Farmacias de nuesto Municipio y zonas aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-  </div>
-</ng-template>
-
-
-<!--beauty style Modal -->
-<ng-template #beautyStyleModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Belleza y Estilo</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Salones, Centro de Uñas y Barbería de nuesto Municipio y zonas
-      aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--mobile computer stores Modal -->
-<ng-template #mobileComputerStores let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Tecnología</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Tiendas de Celulares y Computadoras de nuesto Municipio y zonas
-      aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--food Modal -->
-<ng-template #foodModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Comidas</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Centros de Comidas de nuesto Municipio y zonas aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--supermarket provisions Modal -->
-<ng-template #supermarketProvisionsModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Comerciantes y Detallistas de Provisiones</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Comerciantes y Detallistas de Provisiones del Mun/ San Antonio de Guerra y
-      zonas aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--hardware store replacement Modal -->
-<ng-template #hardwareStoreReplacementModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Ferreterías y Repuestos</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Ferreterías y Repuestos de nuesto Municipio y zonas aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--history guerra Modal -->
-<ng-template #historyGuerraModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Cultura</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Historia del Municipio San Antonio de Guerra y zonas aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--history guerra Modal -->
-<ng-template #workshopsModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Talleres</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Talleres del Municipio San Antonio de Guerra y zonas aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--auto Modal -->
-<ng-template #autoModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Autos</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">RentCars y Dealers del Municipio San Antonio de Guerra y zonas
-      aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--driver Modal -->
-<ng-template #driverModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Taxis y Deliverys</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Taxistas y Deliverys del Municipio San Antonio de Guerra y zonas
-      aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--civil engineer modal -->
-<ng-template #civilEngineerModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Ingeniería Civil</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Servicios de ingeniería civil del Municipio San Antonio de Guerra y zonas
-      aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--hotel cottage modal -->
-<ng-template #hotelCottageModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Hoteles y Casas de Campo</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Hoteles y Casas de Campo del Municipio San Antonio de Guerra y zonas
-      aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--entertainment modal -->
-<ng-template #entertainmentModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Entretenimiento</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Centros de entretenimiento del Municipio San Antonio de Guerra y zonas
-      aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--lawyer modal -->
-<ng-template #lawyerModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Abogado</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Abogados del Municipio San Antonio de Guerra y zonas aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--store modal -->
-<ng-template #storeModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Tienda</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Tiendas del Municipio San Antonio de Guerra y zonas aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-
-<!--accounting modal -->
-<ng-template #accountingModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Cotabilidad</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Contadores del Municipio San Antonio de Guerra y zonas aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-
-<!--graphic design modal -->
-<ng-template #graphicDesignModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Diseño</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Diseñadores del Municipio San Antonio de Guerra y zonas aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--nursery modal -->
-<ng-template #nurseryModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Vivero</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Viveros del Municipio San Antonio de Guerra y zonas aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<!--health modal -->
-<ng-template #healthModal let-modal class="modal-dialog">
-  <div class="modal-header">
-    <h3 class="modal-title">Salud</h3>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body templateBodyColor">
-
-    <strong class="center templateHeader">Clinicas y Hospitales del Municipio San Antonio de Guerra y zonas
-      aledañas</strong>
-    <div>
-      <span [innerHTML]="portada.Body" class="_templateStyle"> </span>
     </div>
 
   </div>
