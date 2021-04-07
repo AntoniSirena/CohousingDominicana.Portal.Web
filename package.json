@@ -95,9 +95,9 @@
   "main": "karma.conf.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AntoniSirena/Guerra.Portal.Web.git"
+    "url": "git+https://github.com/AntoniSirena/CohousingDominicana.Portal.Web.git"
   },
   "bugs": {
-    "url": "https://github.com/AntoniSirena/Guerra.Portal.Web/issues"
+    "url": "https://github.com/AntoniSirena/CohousingDominicana.Portal.Web/issues"
   }
 }
