@@ -37,7 +37,7 @@ export class CompanyRegisterService {
   }
 
   delete(id: number): Observable<object> {
-    return this.httpClient.delete(this.coreURL + 'Api/companyRegister/' + id);
+    return this.httpClient.delete(this.coreURL + 'api/companyRegister/' + id);
   }
 
 

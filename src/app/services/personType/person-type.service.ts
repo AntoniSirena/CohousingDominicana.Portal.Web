@@ -37,7 +37,7 @@ export class PersonTypeService {
   }
 
   delete(id: number): Observable<object> {
-    return this.httpClient.delete(this.coreURL + 'Api/personType/' + id);
+    return this.httpClient.delete(this.coreURL + 'api/personType/' + id);
   }
 
 

@@ -16,11 +16,11 @@ export class ConfigurationParameterService {
   }
 
   getConfigurationParameters(): Observable<object> {
-    return this.httpClient.get(this.coreURL + 'Api/ConfigurationParameter');
+    return this.httpClient.get(this.coreURL + 'api/ConfigurationParameter');
   }
 
   getConfigurationParameterById(id: number): Observable<object> {
-    return this.httpClient.get(this.coreURL + 'Api/ConfigurationParameter/' + id);
+    return this.httpClient.get(this.coreURL + 'api/ConfigurationParameter/' + id);
   }
 
   editConfigurationParameter(configurationParameter: IconfigurationParameter) {
@@ -36,7 +36,7 @@ export class ConfigurationParameterService {
   }
 
   delete(id: number): Observable<object> {
-    return this.httpClient.delete(this.coreURL + 'Api/ConfigurationParameter/' + id);
+    return this.httpClient.delete(this.coreURL + 'api/ConfigurationParameter/' + id);
   }
 
 }
