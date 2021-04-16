@@ -86,14 +86,13 @@ export class TemplateComponent implements OnInit {
     
   }
   
-  enabledTrue() {
-    this.template.Enabled = true;
+  enabled(flag: number) {
+    if(flag === 1){
+      this.template.Enabled = true;
+    }else{
+      this.template.Enabled = false;
+    }
   }
-
-  enabledFalse() {
-    this.template.Enabled = false;
-  }
-
 
   //open edit modal
   openEditModal(editModal, id: number) {

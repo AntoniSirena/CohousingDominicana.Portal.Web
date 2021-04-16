@@ -99,14 +99,15 @@
                                   </textarea>
                               </div>
 
-                              <label for="menuTemplate">Habilidar</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
+                                <label for="menuTemplate">Habilidar</label>
+                                    <div class="input-group mb-3">
+                                        <label class="switch switch-label switch-pill switch-primary">
+                                            <input type="checkbox" class="switch-input" checked
+                                                (change)="$event.target.checked ? enabled(1) : enabled(0)"
+                                                formControlName="enabled">
+                                            <span class="switch-slider" data-checked="SI" data-unchecked="NO"></span>
+                                        </label>
                                     </div>
-                                    <input type="checkbox"
-                                        (change)="$event.target.checked ? enabledTrue() : enabledFalse()"
-                                        formControlName="enabled">
-                                </div>
 
                                 <div class="row center">
                                   <ck-editor name="body" 
@@ -134,7 +135,5 @@
       </form>
 
   </div>
-  <div class="modal-footer">
-      <button type="button" class="btn btn-danger buttonSize_Closed" (click)="modal.close('Close click')">Cerrar</button>
-  </div>
+  
 </ng-template>

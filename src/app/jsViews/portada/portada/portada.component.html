@@ -39,29 +39,29 @@
                 <span style="font-weight: bold; color: white;">NOSOTROS</span>
               </a>
               <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" (click)="inProcess()">Historia</a>
+                <a class="dropdown-item" (click)="openHistoriaModal('Historia')">Historia</a>
                 <a class="dropdown-item" (click)="inProcess()">Quiénes somos</a>
               </div>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; color: white;" (click)="inProcess()">CONTACTENOS</a>
+              <a class="nav-link" style="font-weight: bold; color: white;" (click)="openContactosModal('Contactos')">CONTACTENOS</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" style="font-weight: bold; color: white;" (click)="openPreguntasFrecuentesModal('PreguntasFrecuentes')">PREGUNTAS FRECUENTES</a>
             </li>
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span style="font-weight: bold; color: white;">TIPOS DE COHOUSING</span>
+                <span style="font-weight: bold; color: white;">MODELOS DE COHOUSING</span>
               </a>
               <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" (click)="inProcess()">Bosque o Verde</a>
-                <a class="dropdown-item" (click)="inProcess()">Ciudad</a>
+                <a class="dropdown-item" (click)="inProcess()">Verde</a>
                 <a class="dropdown-item" (click)="inProcess()">Playa</a>
+                <a class="dropdown-item" (click)="inProcess()">Salud</a>
               </div>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; color: white;" (click)="inProcess()">COOPERATIVA</a>
             </li>
 
             <li class="nav-item">
@@ -97,12 +97,26 @@
     </div>
   </div>
 
+
   <!--Section A-->
   <br>
-  <section style="background-color: rgb(28, 211, 141);">
-    <p>Sessión A</p>
+  <section class="bordereA" style="background-color: rgb(152, 240, 211);">
+    <div id="secciónA" style="margin-left: 15px; margin-right: 15px;"></div>
+
+    <br>
   </section>
 
+  <!--Section B-->
+  <br>
+  <section class="bordereB" style="background-color: rgb(92, 221, 210);">
+    <div id="secciónB" style="margin-left: 15px; margin-right: 15px;"></div>
+
+    <br>
+  </section>
+
+  <br>
+  <br>
+  <br>
 </div>
 
 
@@ -149,9 +163,7 @@
           <br>
           <strong class="center templateHeader">Misión</strong>
           <div class="card-body">
-            <div>
-              <span [innerHTML]="portada.Body" class="templateStyle"> </span>
-            </div>
+            <div [innerHTML]="portada.Body" class="template"> </div>
           </div>
         </div>
       </div>
@@ -178,7 +190,7 @@
           <strong class="center templateHeader">Visión</strong>
           <div class="card-body">
             <div>
-              <span [innerHTML]="portada.Body" class="templateStyle"> </span>
+              <span [innerHTML]="portada.Body" class="template"> </span>
             </div>
           </div>
         </div>
@@ -206,12 +218,92 @@
           <strong class="center templateHeader">Valores</strong>
           <div class="card-body">
             <div>
-              <span [innerHTML]="portada.Body" class="templateStyle"> </span>
+              <span [innerHTML]="portada.Body" class="template"> </span>
             </div>
           </div>
         </div>
       </div>
       <!--/.col-->
+    </div>
+
+  </div>
+</ng-template>
+
+
+<!--Historia Modal -->
+<ng-template #historiaModal let-modal class="modal-dialog">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card border-primary templateBodyColor">
+          <br>
+          <strong class="center templateHeader">Historia</strong>
+          <div class="card-body">
+            <div>
+              <span [innerHTML]="portada.Body" class="template"> </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ng-template>
+
+<!--Contactos Modal -->
+<ng-template #contactosModal let-modal class="modal-dialog">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card border-primary templateBodyColor">
+          <br>
+          <strong class="center templateHeader">Contactos</strong>
+          <div class="card-body">
+            <div>
+              <span [innerHTML]="portada.Body" class="template"> </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ng-template>
+
+
+<!--Preguntas Frecuentes Modal -->
+<ng-template #preguntasFrecuentesModal let-modal class="modal-dialog">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card border-primary templateBodyColor">
+          <br>
+          <strong class="center templateHeader">Preguntas frecuentes</strong>
+          <div class="card-body">
+            <div>
+              <span [innerHTML]="portada.Body" class="template"> </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>

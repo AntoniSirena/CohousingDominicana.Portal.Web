@@ -15,6 +15,7 @@ export class User {
   EmailAddress: string;
   Image: string;
   Token: string;
+  RefreshToken: string;
   WelcomeMessage: string;
   MenuTemplate: Object;
   RoleDescription: string;

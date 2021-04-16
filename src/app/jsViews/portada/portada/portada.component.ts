@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { NgxSpinnerService } from "ngx-spinner";
 import $ from 'jquery';
 
+
 import { Router } from '@angular/router';
 import { PortadaService } from '../../../services/portada/portada.service';
 import { Iresponse } from '../../../interfaces/Iresponse/iresponse';
@@ -52,6 +53,11 @@ export class PortadaComponent implements OnInit {
   @ViewChild('visionModal') visionModal: ElementRef;
   @ViewChild('valoresModal') valoresModal: ElementRef;
   @ViewChild('automaticPublicityModal') automaticPublicityModal: ElementRef;
+  @ViewChild('historiaModal') historiaModal: ElementRef;
+  @ViewChild('contactosModal') contactosModal: ElementRef;
+  @ViewChild('preguntasFrecuentesModal') preguntasFrecuentesModal: ElementRef;
+  @ViewChild('secciónAModal') secciónAModal: ElementRef;
+  @ViewChild('secciónBModal') secciónBModal: ElementRef;
 
 
   coreURL = environment.coreURL;
@@ -68,15 +74,8 @@ export class PortadaComponent implements OnInit {
   portada = new Portada();
   automaticPublicityPortada = new Portada();
 
-  leftInfo_A = new Portada();
-  leftInfo_B = new Portada();
-  leftInfo_C = new Portada();
-
-  rightInfo_A = new Portada();
-  rightInfo_B = new Portada();
-  rightInfo_C = new Portada();
-
-  centerInfo = new Portada();
+  secciónA = new Portada();
+  secciónB = new Portada();
 
   bannerA = new Portada();
 
@@ -125,11 +124,13 @@ export class PortadaComponent implements OnInit {
 
     setTimeout(() => {
       this.spinnerService.hide();
+      this.getSecciónA('SecciónA');
+      this.getSecciónB('SecciónB');
     }, 1000);
   }
 
-  
-  inProcess(){
+
+  inProcess() {
     alert('Funcionalidad en proceso');
   }
 
@@ -267,6 +268,46 @@ export class PortadaComponent implements OnInit {
 
   }
 
+  //Get SecciónA
+  getSecciónA(operation: string) {
+    this.portadaService.getTemplateByOperation(operation).subscribe((response: Iresponse) => {
+      if (response.Code === '000') {
+        this.secciónA = response.Data;
+        $("#secciónA").html(this.secciónA.Body);
+      } else {
+        Swal.fire({
+          icon: 'warning',
+          title: response.Message,
+          showConfirmButton: true,
+          timer: 4000
+        });
+      }
+    },
+      error => {
+        console.log(JSON.stringify(error));
+      });
+  }
+
+  //Get SecciónB
+  getSecciónB(operation: string) {
+    this.portadaService.getTemplateByOperation(operation).subscribe((response: Iresponse) => {
+      if (response.Code === '000') {
+        this.secciónB = response.Data;
+        $("#secciónB").html(this.secciónB.Body);
+      } else {
+        Swal.fire({
+          icon: 'warning',
+          title: response.Message,
+          showConfirmButton: true,
+          timer: 4000
+        });
+      }
+    },
+      error => {
+        console.log(JSON.stringify(error));
+      });
+  }
+
 
   //open automatic publicity modal
   openAutomaticPublicityModal(operation: string) {
@@ -296,6 +337,25 @@ export class PortadaComponent implements OnInit {
     this.modalService.open(this.valoresModal, { size: 'lg', scrollable: true, backdrop: 'static' });
   }
 
-  
+
+  //open historia modal
+  openHistoriaModal(operation: string) {
+    this.getTemplate(operation);
+    this.modalService.open(this.historiaModal, { size: 'xl', scrollable: true, backdrop: 'static' });
+  }
+
+  //open historia contactos
+  openContactosModal(operation: string) {
+    this.getTemplate(operation);
+    this.modalService.open(this.contactosModal, { size: 'lg', scrollable: true, backdrop: 'static' });
+  }
+
+
+  //open preguntas frecuentes modal
+  openPreguntasFrecuentesModal(operation: string) {
+    this.getTemplate(operation);
+    this.modalService.open(this.preguntasFrecuentesModal, { size: 'xl', scrollable: true, backdrop: 'static' });
+  }
+
 
 }

@@ -26,13 +26,13 @@ export class ConfigurationParameterService {
   editConfigurationParameter(configurationParameter: IconfigurationParameter) {
     let Json = JSON.stringify(configurationParameter);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.httpClient.put(`${this.coreURL}Api/ConfigurationParameter`, Json, { headers: headers });
+    return this.httpClient.put(`${this.coreURL}api/ConfigurationParameter`, Json, { headers: headers });
   }
 
   createConfigurationParameter(configurationParameter: IconfigurationParameter) {
     let Json = JSON.stringify(configurationParameter);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.httpClient.post(`${this.coreURL}Api/ConfigurationParameter`, Json, { headers: headers });
+    return this.httpClient.post(`${this.coreURL}api/ConfigurationParameter`, Json, { headers: headers });
   }
 
   delete(id: number): Observable<object> {

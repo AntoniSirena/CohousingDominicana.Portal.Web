@@ -44,7 +44,6 @@
     margin-right: 37px;
 }
 
-
 .imgPortada{
     background: transparent;
     /*background-image: url(assets/img/portada/cohousing1.jpg);*/
@@ -176,3 +175,24 @@
 a[aria-expanded="true"]{
     background-color: #42DCA3;
   }
+
+.template{
+    font-size: 20px;
+    text-align: justify;
+}
+
+.modal-xl{
+    max-width: 90%;
+}
+
+.bordereA{
+    border-width: 8px;
+    border-style: ridge; 
+    Border-color: #4accec   
+}
+
+.bordereB{
+    border-width: 8px;
+    border-style: ridge; 
+    Border-color: #26a9ca   
+}

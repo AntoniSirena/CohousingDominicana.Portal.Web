@@ -38,18 +38,4 @@ export class BaseService {
     return this.personalData;
   }
 
-  getUserToke(): string {
-    let result = '';
-
-    if (window.location.hash.match('login') || window.location.hash.match('logOut')) {
-      return result;
-    } else {
-      let token = localStorage.getItem("token");
-      if (token !== null) {
-        result = token.replace(/['"]+/g, '');
-        return result;
-      }
-    }
-  }
-
 }
