@@ -43,7 +43,7 @@ export class RequestInterceptorService implements HttpInterceptor {
     }
 
     if (req.url.match("login")) {
-
+      
     }else{
       headers = headers.append('Authorization', `${this.token}`);
     }

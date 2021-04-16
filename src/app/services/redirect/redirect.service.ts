@@ -181,7 +181,6 @@ export class RedirectService {
 
 
   refreshToken(refreshToken: string){
-
     this.loginSevice.refreshToken(refreshToken).subscribe((response: Iresponse) => {
       if(response.Code == Response.Code){
         localStorage.setItem("token", `${JSON.stringify(response.Data)}`); 
@@ -190,9 +189,10 @@ export class RedirectService {
           icon: 'warning',
           title: response.Message,
           showConfirmButton: true,
-          timer: 5000
+          timer: 3000
         }).then(() => {
-          this.router.navigate(['login']);
+          this.modalService.dismissAll();
+          this.loginUserVisitador();
         });
       }
 
