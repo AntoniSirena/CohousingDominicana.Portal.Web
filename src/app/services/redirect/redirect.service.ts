@@ -183,7 +183,8 @@ export class RedirectService {
   refreshToken(refreshToken: string){
     this.loginSevice.refreshToken(refreshToken).subscribe((response: Iresponse) => {
       if(response.Code == Response.Code){
-        localStorage.setItem("token", `${JSON.stringify(response.Data)}`); 
+        localStorage.setItem("token", `${JSON.stringify(response.Data.token)}`);
+        localStorage.setItem("refreshToken", `${JSON.stringify(response.Data.refreshToken)}`); 
       }else{
         Swal.fire({
           icon: 'warning',

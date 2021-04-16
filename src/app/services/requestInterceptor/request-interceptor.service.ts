@@ -30,9 +30,10 @@ export class RequestInterceptorService implements HttpInterceptor {
     this.coreURL = environment.coreURL;
   }
 
+  
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    this.token = JSON.parse(localStorage.getItem('token'));
+    this.token = JSON.parse(localStorage.getItem('token')) || '';
 
     let headers = new HttpHeaders();
 
@@ -43,7 +44,7 @@ export class RequestInterceptorService implements HttpInterceptor {
     }
 
     if (req.url.match("login")) {
-      
+
     }else{
       headers = headers.append('Authorization', `${this.token}`);
     }
