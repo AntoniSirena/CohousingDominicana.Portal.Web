@@ -1,13 +1,6 @@
-
-
 <!--Call spinner-->
-<ngx-spinner
-bdColor="rgba(51,51,51,0.8)"
-size="medium"
-color="rgb(152, 214, 218)"
-type="timer"
->
-<p style="font-size: 20px; color: white">Cangando...</p>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="rgb(152, 214, 218)" type="timer">
+  <p style="font-size: 20px; color: white">Cangando...</p>
 </ngx-spinner>
 
 
@@ -22,52 +15,69 @@ type="timer"
 
               <div class="card-body">
                 <!--Form-->
-                <form [formGroup]="loginForm" (submit)="loadingOnSubmitLogin(loginForm.value)">
+                <form [formGroup]="loginForm" (submit)="SubmitLogin(loginForm.value)">
 
                   <div class="row">
                     <div class="col-md-12 center">
-                     <h1 style="font-weight: bold;"><span style="color: rgb(26, 150, 26); background-color: azure;">Cohousing </span> <span style="color: rgb(13, 35, 133); background-color: azure;">Dominicana </span> </h1>
+                      <h1 style="font-weight: bold;"><span style="color: rgb(26, 150, 26); background-color: azure;">Cohousing </span> <span style="color: rgb(13, 35, 133); background-color: azure;">Dominicana </span> </h1>
                     </div>
                   </div>
                   <br>
+
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-user"></i></span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Usuario ó Correo" style="font-weight: bold;" autocomplete="username" formControlName="userName">
+                    <input type="text" class="form-control" placeholder="Usuario ó Correo" style="font-weight: bold;"
+                      autocomplete="username" formControlName="userName">
                     <div *ngIf="!loginForm.value.userName" class="required">*</div>
                   </div>
                   <div class="input-group mb-4">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-lock"></i></span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Contraseña" style="font-weight: bold;" autocomplete="current-password" formControlName="password">
+                    <input type="password" class="form-control" placeholder="Contraseña" style="font-weight: bold;"
+                      autocomplete="current-password" formControlName="password">
                     <div *ngIf="!loginForm.value.password" class="required">*</div>
                   </div>
-                  <div class="row">
-                    <div class="col-12">
-                      <button type="submit" class="btn btn-primary loginButton" [disabled]="loginForm.invalid">Iniciar sesión</button>
+
+                  <div *ngIf="buttonLogIn" >
+                    <div class="row">
+                      <div class="col-12">
+                        <button type="submit" class="btn loginButton bold" [disabled]="loginForm.invalid"
+                          style="background-color: rgb(19, 179, 190);"> <span style="color: white;">Iniciar
+                            sesión</span> </button>
+                      </div>
                     </div>
+
+                    <h4 class="center" (click)="openResetPasswordModal()" style="color: white">¿Has olvidado la contraseña?</h4>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <button type="button" *ngIf="valueRegisterButton == '1' " class="btn loginButton bold"
+                          style="background-color: rgb(71, 196, 22);" (click)="register()"><span
+                            style="color: white;">Suscribirme</span></button>
+                      </div>
+                    </div>
+
+                    <br>
+                    <br>
+                    <div>
+                      <div class="center">
+                        <button id="btnPortada" type="button" class="bold btn btn-primary portadaButton"
+                          style="background-color: rgb(41, 92, 116);" (click)="redirectPortada()">Cohousing Dominicana</button>
+                      </div>
+                    </div>
+
                   </div>
 
-                  <br>
-                  
-                  <div>
-                    <div class="center">
-                      <button id="btnPortada" type="button" class="btn btn-primary portadaButton" style="background-color: rgb(41, 92, 116);" (click)="redirectPortada()"> Ver portada</button>
-                    </div>
-                  </div>
 
-                  <br>
-
-                  <div class="row">
+                  <div *ngIf="!buttonLogIn" class="row">
                     <div class="col-12">
-                      <button type="button" *ngIf="valueRegisterButton == '1' " class="btn btn-danger loginButton" (click)="register()"><span style="color: white;">Suscribirme</span></button>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12">
-                      <button type="button" class="btn btn-success loginButton" (click)="openResetPasswordModal()"><span style="color: white;">Recuperar contraseña</span></button>
+                      <button type="button" class="btn loginButton bold" [disabled]="true"
+                        style="background-color: rgb(19, 179, 190);"> <span style="color: white;">Validando
+                          credenciales...</span> <i class="fa fa-circle-o-notch fa-spin"
+                          style="font-size:35px; color: rgb(60, 170, 16);"></i></button>
                     </div>
                   </div>
 
@@ -76,7 +86,7 @@ type="timer"
 
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -84,9 +94,9 @@ type="timer"
   </main>
 </div>
 
-<!-- <ng-marquee duration="40s" style="background: rgb(180, 231, 238);">
+<!--<ng-marquee duration="40s" style="background: rgb(180, 231, 238);">
   <span class="marqueeStyle_Login" [innerHTML]="bannerA.Body"></span>
-</ng-marquee> -->
+</ng-marquee>-->
 
 
 <!--Reset password modal-->
@@ -103,16 +113,16 @@ type="timer"
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <div class="card">
-              <div class="card-header">
-              </div>
+            <div class="card" style="border-radius: 15px;">
+
               <div class="card-body">
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
-                  <input type="text" formControlName="userName" class="form-control" placeholder="Usuario" autocomplete="username" required>
+                  <input type="text" formControlName="userName" class="form-control" placeholder="Usuario"
+                    autocomplete="username" required>
                   <div *ngIf="!resetPasswordForm.value.userName" class="required">*</div>
                 </div>
 
@@ -120,22 +130,27 @@ type="timer"
                   <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
                   </div>
-                  <input type="email" formControlName="emailAddress" class="form-control" placeholder="Correo" autocomplete="email" required>
+                  <input type="email" formControlName="emailAddress" class="form-control" placeholder="Correo"
+                    autocomplete="email" required>
                   <div *ngIf="!resetPasswordForm.value.emailAddress" class="required">*</div>
                 </div>
-                
+
+                <div *ngIf="buttonResetPass" class="row center">
+                  <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary"
+                      style="font-size: 25px; width: 150px; border-radius: 22px;"
+                      [disabled]="resetPasswordForm.invalid">Enviar</button>
+                  </div>
+                </div>
+                <h2 class="center" *ngIf="!buttonResetPass" style="color: rgb(11, 141, 216);">Procesando solicitud...
+                </h2>
+
               </div>
             </div>
           </div>
-          <!--/.col-->
+
         </div>
-        <!--/.row-->
-        <div class="row">
-          <div class="col-sm-12">
-            <button type="submit" class="btn btn-primary buttonSize_Standar_Save" [disabled]="resetPasswordForm.invalid">Enviar</button>
-          </div>
-          <!--/.row-->
-        </div>
+
       </div>
     </form>
 

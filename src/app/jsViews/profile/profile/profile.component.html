@@ -37,9 +37,18 @@
                                     <input fileToBase64 type="file" [(files)]="inputFiles" (filesChange)="uploadFile($event)" multiple="">
                                   </div>
 
-                                  <div *ngIf="inputFiles !== ''" class="row">
+                                  <div *ngIf="inputFiles !== '' && buttonUpdateUserImg" class="row">
                                     <div class="cold-md-12 center">
                                       <button type="button" class="btn btn-primary button_size" (click)="updateProfileImg()">Actualizar imagen</button>                                                              
+                                    </div>
+                                  </div>
+
+                                  <div *ngIf="!buttonUpdateUserImg" class="row">
+                                    <div class="cold-md-12 center">
+                                      <button type="button" class="btn btn-primary button_size">
+                                        <span style="color: white; font-size: 20px;">Espere mientras se actualiza su foto...</span> <i class="fa fa-circle-o-notch fa-spin"
+                                          style="font-size:30px; color: rgb(60, 170, 16);"></i>
+                                      </button>
                                     </div>
                                   </div>
 

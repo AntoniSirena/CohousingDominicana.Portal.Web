@@ -65,12 +65,15 @@ export class ProfileComponent implements OnInit {
     //Cagando la data desde el servidor
     if(!this.isVisitorUser && localStorage.length > 0){
       this.profile = this.baseService.getProfile();
-      this.getGenders();
-      this.getDocumentTypes();
-      this.getInfoCurrentUser();
-      this.getInfoCurrentPerson();
-      this.getLocatorsTypes();
-      this.getInfoCurrentLocators();
+      
+      setTimeout(() => {
+        this.getGenders();
+        this.getDocumentTypes();
+        this.getInfoCurrentUser();
+        this.getInfoCurrentPerson();
+        this.getLocatorsTypes();
+        this.getInfoCurrentLocators();
+      }, 10000);
     }
 
     if(localStorage.length === 0){
@@ -104,8 +107,12 @@ export class ProfileComponent implements OnInit {
   imgProfile: string = '';
   imgProfileOriginServer: boolean = true;
 
+  buttonUpdateUserImg: boolean;
+
   //Init
   ngOnInit(): void {
+    this.buttonUpdateUserImg = true;
+
     this.setValueEditPersonFrom();
     this.setValueCreatePersonFrom();
     this.setValueEditFrom();
@@ -297,7 +304,10 @@ export class ProfileComponent implements OnInit {
 
   //update Img Profile
   updateProfileImg() {
+    this.buttonUpdateUserImg = false;
+
     this.profileService.updateProfileImagen(this.imgProfile).subscribe((response: Iresponse) => {
+      this.buttonUpdateUserImg = true;
       if (response.Code === '000') {
         Swal.fire({
           position: 'top-end',
@@ -317,6 +327,7 @@ export class ProfileComponent implements OnInit {
       }
     },
       error => {
+        this.buttonUpdateUserImg = true;
         console.log(JSON.stringify(error));
       });
   }

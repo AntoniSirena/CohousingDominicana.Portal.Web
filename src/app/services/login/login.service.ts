@@ -25,9 +25,7 @@ export class LoginService {
 
   refreshToken(refreshToken: string) {
     let Json = JSON.stringify(refreshToken);
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-    return this.httpClient.post(this.coreURL + 'api/login/refreshToken', Json, { headers: headers });
+    return this.httpClient.post(this.coreURL + 'api/login/refreshToken', Json);
   }
 
   logOut(value: string) {

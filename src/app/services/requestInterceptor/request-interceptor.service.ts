@@ -66,6 +66,9 @@ export class RequestInterceptorService implements HttpInterceptor {
           if (res.status === 301 || res.status === 302 || res.status === 303) {
             location.href = res.error
           }
+          if (res.status === 400) {
+            this.redirectService.error400(res.error.Message);
+          }
           if (res.status === 401) {
             let refreshToken = JSON.parse(localStorage.getItem('refreshToken'));
             this.redirectService.refreshToken(refreshToken);

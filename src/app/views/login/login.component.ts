@@ -5,7 +5,7 @@ import { LoginService } from '../../services/login/login.service';
 import { RedirectService } from '../../services/redirect/redirect.service'
 import Swal from 'sweetalert2';
 import { NgxSpinnerService } from "ngx-spinner";
-import $ from 'jquery'; 
+import $ from 'jquery';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Ilogin } from '../../interfaces/Ilogin/ilogin';
@@ -14,6 +14,7 @@ import { Profile } from '../../models/profile/profile';
 import { SystemConfiguration } from '../../Templates/systemConfiguration/system-configuration';
 import { ExternalService } from '../../services/external/external.service';
 import { Portada } from '../../models/portada/portada';
+import { observeOn } from 'rxjs/operators';
 
 
 @Component({
@@ -57,6 +58,9 @@ export class LoginComponent implements OnInit {
 
   bannerA = new Portada();
 
+  buttonResetPass: boolean;
+  buttonLogIn: boolean;
+
   @ViewChild('resetPasswordModal') resetPasswordModal: ElementRef;
 
 
@@ -71,12 +75,14 @@ export class LoginComponent implements OnInit {
 
     this.getValueRegisterButton();
     //this.getTemplateBannerA('BannerLogin_A');
+    this.buttonResetPass = true;
+    this.buttonLogIn = true;
   };
 
 
-  
-  goPortadaPage(){
-    if(!this.canViewLoginPageDefault){
+
+  goPortadaPage() {
+    if (!this.canViewLoginPageDefault) {
       this.redirectPortada();
       localStorage.setItem('canViewLoginPageDefault', 'true');
     }
@@ -87,22 +93,10 @@ export class LoginComponent implements OnInit {
   }
 
 
-  //loading OnSubmit Login
-  loadingOnSubmitLogin(loginForm: any){
-    
-    this.onSubmit(loginForm);
-    this.spinnerService.show();
+  //SubmitLogin
+  SubmitLogin(loginForm: any) {
 
-    setTimeout(() => {
-      this.spinnerService.hide();
-    }, 4000);
-  }
-
-
-  //Login
-  onSubmit(loginForm: any) {
-
-    const login: Ilogin = {
+    const request: Ilogin = {
       UserName: loginForm.userName,
       Password: loginForm.password,
       EmailAddress: null,
@@ -111,9 +105,59 @@ export class LoginComponent implements OnInit {
       RefreshToken: false,
     };
 
-    this.redirectService.SubmitLogin(login);
+    this.buttonLogIn = false;
+
+    this.loginService.authenticate(request).subscribe((response: Iresponse) => {
+
+      if (response.Code === '000') {
+
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: response.Message,
+          showConfirmButton: true,
+          timer: 3000
+        }).then(() => {
+
+          //profile
+          this.profile = response.Data;
+          localStorage.setItem("profile", `${JSON.stringify(this.profile.Profile)}`);
+          localStorage.setItem("personalData", `${JSON.stringify(this.profile.Profile.Person)}`);
+          localStorage.setItem("userData", `${JSON.stringify(this.profile.Profile.User)}`);
+          localStorage.setItem("token", `${JSON.stringify(this.profile.Profile.User.Token)}`);
+          localStorage.setItem("refreshToken", `${JSON.stringify(this.profile.Profile.User.RefreshToken)}`);
+          localStorage.setItem("userName", `${JSON.stringify(this.profile.Profile.User.UserName)}`);
+          localStorage.setItem("userId", `${JSON.stringify(this.profile.Profile.User.Id)}`);
+          localStorage.setItem("canCreate", `${JSON.stringify(this.profile.Profile.User.CanCreate)}`);
+          localStorage.setItem("canEdit", `${JSON.stringify(this.profile.Profile.User.CanEdit)}`);
+          localStorage.setItem("canDelete", `${JSON.stringify(this.profile.Profile.User.CanDelete)}`);
+
+          localStorage.setItem("isVisitorUser", `${JSON.stringify(this.profile.Profile.User.IsVisitorUser)}`);
+          localStorage.setItem('currentMenuTemplate', `${JSON.stringify(this.profile.Profile.User.MenuTemplate)}`);
+
+          //welcome to system
+          this.redirectService.welcomeToSystem();
+        });
+
+      } else {
+        Swal.fire({
+          icon: 'warning',
+          title: response.Message,
+          showConfirmButton: true,
+          timer: 10000
+        }).then(() => {
+          this.buttonLogIn = true;
+        });;
+      }
+
+    },
+      error => {
+        this.buttonLogIn = true;
+        console.log(JSON.stringify(error));
+      });
+
   }
-  //end
+
 
   register() {
     this.redirectService.register();
@@ -138,9 +182,10 @@ export class LoginComponent implements OnInit {
 
 
   //loading Reset Password
-  loadingResetPassword(resetPasswordForm: any){
+  loadingResetPassword(resetPasswordForm: any) {
     this.spinnerService.show();
- 
+    this.buttonResetPass = false;
+
     setTimeout(() => {
       this.resetPassword(resetPasswordForm);
       this.spinnerService.hide();
@@ -175,10 +220,13 @@ export class LoginComponent implements OnInit {
           title: response.Message,
           showConfirmButton: true,
           timer: 10000
-        });
+        }).then(() => {
+          this.buttonResetPass = true;
+        });;
       }
     },
       error => {
+        this.buttonResetPass = true;
         console.log(JSON.stringify(error));
       });
 

@@ -49,7 +49,7 @@ export class RedirectService {
             localStorage.setItem("profile", `${JSON.stringify(this.profile.Profile)}`);
             localStorage.setItem("personalData", `${JSON.stringify(this.profile.Profile.Person)}`);
             localStorage.setItem("userData", `${JSON.stringify(this.profile.Profile.User)}`);
-            localStorage.setItem("token", `${JSON.stringify(this.profile.Profile.User.Token)}`);           
+            localStorage.setItem("token", `${JSON.stringify(this.profile.Profile.User.Token)}`);
             localStorage.setItem("refreshToken", `${JSON.stringify(this.profile.Profile.User.RefreshToken)}`);
             localStorage.setItem("userName", `${JSON.stringify(this.profile.Profile.User.UserName)}`);
             localStorage.setItem("userId", `${JSON.stringify(this.profile.Profile.User.Id)}`);
@@ -180,12 +180,12 @@ export class RedirectService {
   }
 
 
-  refreshToken(refreshToken: string){
+  refreshToken(refreshToken: string) {
     this.loginSevice.refreshToken(refreshToken).subscribe((response: Iresponse) => {
-      if(response.Code == Response.Code){
+      if (response.Code == Response.Code) {
         localStorage.setItem("token", `${JSON.stringify(response.Data.token)}`);
-        localStorage.setItem("refreshToken", `${JSON.stringify(response.Data.refreshToken)}`); 
-      }else{
+        localStorage.setItem("refreshToken", `${JSON.stringify(response.Data.refreshToken)}`);
+      } else {
         Swal.fire({
           icon: 'warning',
           title: response.Message,
@@ -218,6 +218,17 @@ export class RedirectService {
     }
   }
 
+  error400(message: string) {
+    Swal.fire({
+      icon: 'warning',
+      title: message,
+      showConfirmButton: true,
+      timer: 20000
+    }).then(() => {
+
+    });
+  }
+
   error404() {
 
     if (this.profile.Profile.User.RoleShortName !== Role.Suscriptor || this.profile.Profile.User.RoleShortName !== Role.Visitor) {
@@ -246,7 +257,7 @@ export class RedirectService {
         });
 
       if (!isVisitorUser) {
-        if(!window.location.hash.match('login') && !window.location.hash.match('portada')){
+        if (!window.location.hash.match('login') && !window.location.hash.match('portada')) {
           Swal.fire({
             icon: 'warning',
             title: 'Estimado usuario la solicitud no fué autorizada',
@@ -266,7 +277,6 @@ export class RedirectService {
   welcomeToSystem() {
     this.modalService.dismissAll();
     this.router.navigate(['portada']).then(() => {
-      setTimeout(function () { window.location.reload() }, 1);
     });
   }
 
